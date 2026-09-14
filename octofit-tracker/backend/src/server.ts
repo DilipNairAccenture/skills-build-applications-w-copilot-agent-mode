@@ -1,7 +1,8 @@
 import 'dotenv/config';
 import cors from 'cors';
 import express from 'express';
-import database, { connectDatabase } from './config/database.js';
+import { connectDatabase } from './config/database.js';
+import apiRouter from './routes/api.js';
 
 const app = express();
 const port = Number(process.env.PORT || 8000);
@@ -9,13 +10,7 @@ const port = Number(process.env.PORT || 8000);
 app.use(cors());
 app.use(express.json());
 
-app.get('/api/health', (_request, response) => {
-  response.json({ service: 'octofit-tracker-api', status: 'ok' });
-});
-
-app.get('/api/database', (_request, response) => {
-  response.json({ status: database.readyState === 1 ? 'connected' : 'disconnected' });
-});
+app.use('/api', apiRouter);
 
 async function startServer() {
   await connectDatabase();
