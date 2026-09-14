@@ -3,6 +3,10 @@ import mongoose from 'mongoose';
 import { connectDatabase } from '../config/database.js';
 import { Activity, LeaderboardEntry, Team, User, Workout } from '../models/index.js';
 
+/**
+ * Replaces the OctoFit test dataset in octofit_db with users, teams, activities,
+ * leaderboard entries, and recommended workouts.
+ */
 const userIds = {
   alex: new mongoose.Types.ObjectId('64a000000000000000000001'),
   jamie: new mongoose.Types.ObjectId('64a000000000000000000002'),
