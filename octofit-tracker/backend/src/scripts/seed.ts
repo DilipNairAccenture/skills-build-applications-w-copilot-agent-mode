@@ -4,7 +4,8 @@ import { connectDatabase } from '../config/database.js';
 import { Activity, LeaderboardEntry, Team, User, Workout } from '../models/index.js';
 
 /**
- * Replaces the OctoFit test dataset in octofit_db with users, teams, activities,
+ * Seed the octofit_db database with test data.
+ * Replaces the existing OctoFit collections with users, teams, activities,
  * leaderboard entries, and recommended workouts.
  */
 const userIds = {
